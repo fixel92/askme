@@ -9,18 +9,18 @@ class User < ApplicationRecord
 
   has_many :questions
 
-  validates :email, :username, presence: true, uniqueness: true
-  validates :email,
-            format: { with: EMAIL_VALIDATION }
+  validates_uniqueness_of :email, :username, case_sensitive: false
+  validates :email, :username, presence: true
+  validates :email, format: { with: EMAIL_VALIDATION }
   validates :username, length: { maximum: 40 }
   validates :username, format: { with: USER_VALIDATION }
-
 
   attr_accessor :password
 
   validates_presence_of :password, on: :create
   validates_confirmation_of :password
 
+  before_validation :downcase_username
   before_save :encrypt_password
 
   def self.hash_to_string(password_hash)
@@ -35,6 +35,10 @@ class User < ApplicationRecord
     else
       nil
     end
+  end
+
+  def downcase_username
+    self.username = username.downcase
   end
 
   def encrypt_password
