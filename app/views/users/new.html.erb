@@ -1,8 +1,3 @@
-<%# Страница для регистрации нового пользователя. %>
-
-<%# Обратите внимание, что она очень похожа на страницу редактирования юзера, %>
-<%# что позволяет в подобных случаях использовать один и тот же паршиал form %>
-<%# в обоих страницах. %>
 <div class="container content-wrapper buffer-both">
   <h1 class="title-medium">Присоединяйся к нам!</h1>
   <div class="column-1-2">
@@ -10,7 +5,7 @@
       <% if @user.errors.any? %>
         <div class="form-errors">
           <ul>
-            <% for message in @user.errors.full_messages %>
+            <% @user.errors.full_messages.each do |message| %>
               <li class="form-error-message"><%= message %></li>
             <% end %>
           </ul>
@@ -27,6 +22,10 @@
       <div class="form-field">
         <%= f.label :name, 'Имя', class: 'form-label' %>
         <%= f.text_field :name, class: 'form-text-field' %>
+      </div>
+      <div class="form-field">
+        <%= f.label :avatar_url, 'URL вашей аватарки', class: 'form-label' %>
+        <%= f.text_field :avatar_url, class: 'form-text-field' %>
       </div>
       <div class="form-field">
         <%= f.label :password, 'Пароль', class: 'form-label' %>
