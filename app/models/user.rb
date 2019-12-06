@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   EMAIL_VALIDATION = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   USER_VALIDATION = /\w/i.freeze
+  COLOR_VALIDATION = /\A\#{1}(?:[A-F0-9]{3}){1,2}\z/i.freeze
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
@@ -14,6 +15,7 @@ class User < ApplicationRecord
   validates :email, format: { with: EMAIL_VALIDATION }
   validates :username, length: { maximum: 40 }
   validates :username, format: { with: USER_VALIDATION }
+  validates :color_header, format: { with: COLOR_VALIDATION }
 
   attr_accessor :password
 
