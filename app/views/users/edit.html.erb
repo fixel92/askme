@@ -42,5 +42,11 @@
         <%= f.submit 'Обновить', class: 'button button-small button-dark' %>
       </div>
     <% end %>
+    <% if current_user == @user %>
+      <div class="delete-user-area">
+        <%= link_to 'Удалить пользователя', user_path(@user), class: 'button-red button-small',
+                    method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
+      </div>
+    <% end %>
   </div>
 </div>
