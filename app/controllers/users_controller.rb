@@ -46,13 +46,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if session[:user_id] == @user.id
-      @user.destroy
-      session.destroy
-      redirect_to root_url, notice: 'Пользователь удален.'
-    else
-      render :edit
-    end
+    @user.destroy
+    redirect_to root_url, notice: 'Пользователь удален.'
   end
 
   private
