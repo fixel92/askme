@@ -5,8 +5,7 @@
   <div class="buffer-both">
     <%= link_to 'Редактировать профиль', edit_user_path(@user) if current_user == @user %>
   </div>
-  <div class="user-image-div" style="border-color: <%= @user.color_border_img %>">
-    <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>
+  <div class="user-image-div" style="border-color: <%= @user.color_border_img %>; background-image: url('<%= user_avatar(@user) %>')">
   </div>
   <h2 class="title-small buffer-both">
     @<%= @user.username %>

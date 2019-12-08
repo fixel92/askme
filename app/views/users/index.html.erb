@@ -4,9 +4,9 @@
   </div>
   <% @users.each do |user| %>
       <div class="users-list-item">
-        <div class="user-image-div user-image-div-small">
-          <%= link_to image_tag(user_avatar(user), class: 'user-image'), user_path(user) %>
-        </div>
+        <%= link_to user_path(user) do %>
+          <div class="user-image-div user-image-div-small" style="border-color: <%= user.color_border_img %>; background-image: url('<%= user_avatar(user) %>')"></div>
+        <% end %>
       </div>
   <% end %>
 </div>
