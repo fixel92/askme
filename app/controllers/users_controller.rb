@@ -45,6 +45,16 @@ class UsersController < ApplicationController
     @unanswered_count = @questions_count - @answers_count
   end
 
+  def destroy
+    if session[:user_id] == @user.id
+      @user.destroy
+      session.destroy
+      redirect_to root_url, notice: 'Пользователь удален.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def authorize_user
