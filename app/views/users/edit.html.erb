@@ -24,6 +24,10 @@
         <%= f.color_field :color_header, class: 'form-color-field' %>
       </div>
       <div class="form-field">
+        <%= f.label :color_header, 'Цвет границы фото', class: 'form-label' %>
+        <%= f.color_field :color_border_img, class: 'form-color-field' %>
+      </div>
+      <div class="form-field">
         <%= f.label :avatar_url, 'URL вашей аватарки', class: 'form-label' %>
         <%= f.text_field :avatar_url, class: 'form-text-field' %>
       </div>
@@ -48,5 +52,20 @@
                     method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
       </div>
     <% end %>
+  </div>
+  <div class="column-1-2">
+    <div class="user-preview">
+      <div class="user-header text-center" style="background-color: <%= @user.color_header %>">
+        <h1 class="title-medium">
+          <%= @user.name %>
+        </h1>
+        <div class="user-image-div" style="border-color: <%= @user.color_border_img %>">
+          <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>
+        </div>
+        <h2 class="title-small buffer-both">
+          @<%= @user.username %>
+        </h2>
+      </div>
+    </div>
   </div>
 </div>

@@ -13,6 +13,14 @@ $(function(){
     $('#ask-form').slideToggle(300);
     return false;
   });
+
+  $('#user_color_header').on('change', function() {
+    $('.user-preview .user-header').css("background-color", this.value)
+  })
+
+  $('#user_color_border_img').on('change', function() {
+    $('.user-preview .user-image-div').css("border-color", this.value)
+  })
 });
 
 
