@@ -2,6 +2,11 @@
   margin-bottom: 10px;
 }
 
+.form-color-field {
+    border: none;
+    width: 145px;
+}
+
 .form-label {
   display: block;
   margin-bottom: 5px;

@@ -15,12 +15,22 @@ $(function(){
   });
 
   $('#user_color_header').on('change', function() {
-    $('.user-preview .user-header').css("background-color", this.value)
-  })
+    $('.user-preview .user-header').css("background-color", this.value);
+  });
 
   $('#user_color_border_img').on('change', function() {
-    $('.user-preview .user-image-div').css("border-color", this.value)
-  })
+    $('.user-preview .user-image-div').css("border-color", this.value);
+  });
+
+  $('.color_header_reset').on('click', function () {
+    $('#user_color_header').val('#005a55');
+    $('.user-preview .user-header').css("background-color", '#005a55');
+  });
+
+  $('.color_border_reset').on('click', function () {
+    $('#user_color_border_img').val('#00b6ad');
+    $('.user-preview .user-image-div').css("background-color", '#00b6ad');
+  });
 });
 
 

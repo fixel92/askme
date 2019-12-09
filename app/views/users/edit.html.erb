@@ -22,10 +22,12 @@
       <div class="form-field">
         <%= f.label :color_header, 'Цвет Вашей шапки', class: 'form-label' %>
         <%= f.color_field :color_header, class: 'form-color-field' %>
+        <%= link_to 'Вернуть назад', '#' , class: 'color_header_reset' %>
       </div>
       <div class="form-field">
         <%= f.label :color_header, 'Цвет границы фото', class: 'form-label' %>
         <%= f.color_field :color_border_img, class: 'form-color-field' %>
+        <%= link_to 'Вернуть назад', '#', class: 'color_border_reset' %>
       </div>
       <div class="form-field">
         <%= f.label :avatar_url, 'URL вашей аватарки', class: 'form-label' %>
