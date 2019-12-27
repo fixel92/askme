@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_105734) do
+ActiveRecord::Schema.define(version: 2019_12_26_190250) do
 
   create_table "questions", force: :cascade do |t|
     t.string "text"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 2019_12_09_105734) do
     t.integer "author_id"
     t.index ["author_id"], name: "index_questions_on_author_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "questions_tags", id: false, force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["question_id", "tag_id"], name: "index_questions_tags_on_question_id_and_tag_id"
+    t.index ["tag_id", "question_id"], name: "index_questions_tags_on_tag_id_and_question_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["text"], name: "index_tags_on_text", unique: true
   end
 
   create_table "users", force: :cascade do |t|
