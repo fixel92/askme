@@ -1,0 +1,10 @@
+<div class="user-header text-center" style="background-color: #005a55">
+  <h1 class="title-medium">
+    <%= @tag.text %>
+  </h1>
+</div>
+<div class="user-question-form-div " id='ask-form'>
+<%= render partial: 'questions/question', collection: @questions %>
+</div>
+
+

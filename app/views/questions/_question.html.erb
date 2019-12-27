@@ -17,6 +17,13 @@
           <%= link_to "от @#{question.author.username}", user_path(question.author), class: 'question-author' %>
       <% end %>
     </div>
+    <% if question.tags.any? %>
+      <div class="question-tags buffer-both">
+        <% question.tags.each do |tag| %>
+          <%= link_to tag.text, tag_path(tag) %>
+        <% end %>
+      </div>
+    <% end %>
 
   </div>
   <% if question.user == current_user %>
