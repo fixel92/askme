@@ -3,7 +3,7 @@ class Question < ApplicationRecord
   TAGPATTERN = /#[[:word:]-]+/u
 
   belongs_to :user
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: 'User', optional: true
   has_and_belongs_to_many :tags
 
   validates :text, :user, presence: true
